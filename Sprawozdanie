@@ -3,6 +3,9 @@ Filip Śnieguła 122458
 Tomasz Peliński 122474
 
 I. Opis metody
+  I.1 Metaheurystyka
+  Wybraliśmy algorytm genetyczny.
+  
   
   Przed przystąpieniem do głównej pętli algorytmu należy 
 
