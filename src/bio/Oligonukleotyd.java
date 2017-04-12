@@ -1,6 +1,7 @@
 package bio;
 
 class Oligonukleotyd {
+<<<<<<< HEAD
 	public String getLancuch() {
 		return lancuch;
 	}
@@ -36,4 +37,7 @@ class Oligonukleotyd {
 	private Oligonukleotyd nastepny;
 	private int dlugosc;
 	private int liczbaSlow;
+=======
+	
+>>>>>>> branch 'ini' of https://github.com/Terenter/Bioinformatyka.git
 }
