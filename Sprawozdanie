@@ -15,11 +15,11 @@ I. Opis metody
     ustawiamy jego długość na długość o1 + 1, jego indeks początkowy na indeks o1, indeks końcowy na o2
     i zastępujemy nim o1 i o2 w grafie (?).
 
-  I.3 Główna część algorytmu
-  Algorytm składa się z czterech głównych części: generowania populacji
-rozwiązań początkowych oraz wykonywanych cyklicznie ewolucji i krzyżowania rozwiązań
-(skutkujące zwiększeniem liczności populacji rozwiązań) i turnieju, który po dwóch
-poprzednich etapach przywraca populację do początkowego rozmiaru.
+ I.3 Główna część algorytmu
+	Algorytm składa się z czterech głównych części: generowania populacji
+	rozwiązań początkowych oraz wykonywanych cyklicznie ewolucji i krzyżowania rozwiązań
+	(skutkujące zwiększeniem liczności populacji rozwiązań) i turnieju, który po dwóch
+	poprzednich etapach przywraca populację do początkowego rozmiaru.
 
 
 
