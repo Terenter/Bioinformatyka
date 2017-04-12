@@ -11,7 +11,10 @@ I. Opis metody
   Przed przystąpieniem do głównej pętli algorytmu należy u
 
   I.3 Główna część algorytmu
-  Algorytm składa się z 4 części.
+  Algorytm składa się z czterech głównych części: generowania populacji
+rozwiązań początkowych oraz wykonywanych cyklicznie ewolucji i krzyżowania rozwiązań
+(skutkujące zwiększeniem liczności populacji rozwiązań) i turnieju, który po dwóch
+poprzednich etapach przywraca populację do początkowego rozmiaru.
 
 
 II. Przypadki o określonych błędach
