@@ -10,7 +10,8 @@ I. Opis metody
  I.2 Przedprzetwarzanie:
   Przed przystąpieniem do głównej pętli algorytmu należy u
 
-
+  I.3 Główna część algorytmu
+  Algorytm składa się z 4 części.
 
 
 II. Przypadki o określonych błędach
