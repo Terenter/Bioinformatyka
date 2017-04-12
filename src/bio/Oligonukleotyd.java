@@ -1,5 +1,5 @@
 package bio;
 
-public class Oligonukleotyd {
-
+class Oligonukleotyd {
+	
 }
