@@ -1,1 +1,33 @@
+Bioinformatyka - sprawozdanie 1
+Filip Śnieguła 122458 
+Tomasz Peliński 122474
 
+I. Opis metody
+ 
+ I.1 Metaheurystyka
+  Wybraliśmy algorytm genetyczny.
+   
+ I.2 Przedprzetwarzanie:
+  Po pobraniu danych wejściowych tworzymy graf pełny, w którym wierzchołkami są oligonukleotydy, wagi łuków są równe przesunięciu
+  jakie należy wykonać, żeby dwa nukleotydy się nałożyły.
+  
+  Przed przystąpieniem do głównej pętli algorytmu upraszczamy zbiór oligonukleotydów wejściowych w taki sposób, że:
+    a) jeśli dla danego olinukleotydu (o1) istnieje tylko jeden następujący oligonukleotyd (o2) oddalony o 1
+    i równocześnie o1 jest jedynym oligonukleotycem poprzedzającym o2 o 1 to tworzymy nowy oligonukleotyd składający się
+    ze wszszystkich zasad o1 i ostatniej zasady o2, ustawiamy jego długość na długość o1 + 1,
+    jego indeks początkowy na indeks o1, indeks końcowy na o2 i zastępujemy nim o1 i o2 w grafie (?);
+    b) jeśli dla danego olinukleotydu (o1) istnieje tylko jeden poprzedzający oligonukleotyd (o2) oddalony o 1
+    i równocześnie o1 jest jedynym oligonukleotycem następującym o2 o 1 to tworzymy nowy oligonukleotyd składający się
+    ze wszszystkich zasad o2 i ostatniej zasady o1, ustawiamy jego długość na długość o1 + 1,
+    jego indeks początkowy na indeks o1, indeks końcowy na o2 i zastępujemy nim o1 i o2 w grafie (?).
+
+ I.3 Główna część algorytmu
+	Algorytm składa się z czterech głównych części: generowania populacji
+	rozwiązań początkowych oraz wykonywanych cyklicznie ewolucji i krzyżowania rozwiązań
+	(skutkujące zwiększeniem liczności populacji rozwiązań) i turnieju, który po dwóch
+	poprzednich etapach przywraca populację do początkowego rozmiaru.
+
+
+
+
+II. Przypadki o określonych błędach
