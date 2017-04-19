@@ -1,5 +1,7 @@
 package bio;
 
+import java.io.IOException;
+
 public class Projekt {
 
 	private static int rozmiarPopulacji;
@@ -8,7 +10,11 @@ public class Projekt {
 	private static int[][] grafOl;
 	private static Oligonukleotyd[] instancja;
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		try {
+			instancja = new Wczytywacz().wczytajDane(args[0]);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 	public static int getRozmiarPopulacji() {
