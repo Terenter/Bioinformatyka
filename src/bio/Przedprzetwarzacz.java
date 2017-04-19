@@ -52,10 +52,22 @@ class Przedprzetwarzacz {
 					}
 				}
 				if(indeks2!=-1){
-					//TODO skracanie
+					Oligonukleotyd oTym = zlacz(dane[i],dane[indeks]);
+					dane[i] = oTym;
+					dane[indeks] = oTym;
+					dane[i].setNastepny(dane[indeks]);
+					dane[indeks].setPoprzedni(dane[i]);
 				}
 			}
 		}
 		return graf;
+	}
+	
+	private Oligonukleotyd zlacz(Oligonukleotyd o1, Oligonukleotyd o2)
+	{
+		Oligonukleotyd o = new Oligonukleotyd(o1.getLancuch()+o2.getLancuch().substring(o2.getDlugosc()-o1.getDlugosc()-1),o1.getDlugosc()+o2.getDlugosc()-10);
+		o.setLiczbaSlow(o1.getLiczbaSlow()+o2.getLiczbaSlow());
+		return o;
+		
 	}
 }
