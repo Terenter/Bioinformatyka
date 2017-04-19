@@ -26,7 +26,7 @@ class Przedprzetwarzacz {
 		return L;
 	}
 	
-	public int[][] skrocGraf(int [][] graf, Oligonukleotyd[] dane){
+	public void znajdzPolaczenia(int [][] graf, Oligonukleotyd[] dane){
 		int n=dane.length;
 		int indeks,indeks2;
 		for(int i=0;i<n;i++){
@@ -52,21 +52,19 @@ class Przedprzetwarzacz {
 					}
 				}
 				if(indeks2!=-1){
-					Oligonukleotyd oTym = zlacz(dane[i],dane[indeks]);
-					dane[i] = oTym;
-					dane[indeks] = oTym;
-					dane[i].setNastepny(dane[indeks]);
-					dane[indeks].setPoprzedni(dane[i]);
+					dane[i].setNastepny(indeks);
+					dane[indeks].setPoprzedni(i);
 				}
 			}
 		}
-		return graf;
 	}
 	
 	private Oligonukleotyd zlacz(Oligonukleotyd o1, Oligonukleotyd o2)
 	{
 		Oligonukleotyd o = new Oligonukleotyd(o1.getLancuch()+o2.getLancuch().substring(o2.getDlugosc()-o1.getDlugosc()-1),o1.getDlugosc()+o2.getDlugosc()-10);
 		o.setLiczbaSlow(o1.getLiczbaSlow()+o2.getLiczbaSlow());
+		o.setPoprzedni(o1.getPoprzedni());
+		o.setNastepny(o2.getNastepny());
 		return o;
 		
 	}
