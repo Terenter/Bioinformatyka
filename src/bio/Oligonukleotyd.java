@@ -1,6 +1,15 @@
 package bio;
 
 class Oligonukleotyd {
+	private String lancuch;
+	private Oligonukleotyd poprzedni = null;
+	private Oligonukleotyd nastepny = null;
+	private int dlugosc;
+	private int liczbaSlow = 1;
+	public Oligonukleotyd(String lancuch, int l) {
+		this.lancuch = lancuch;
+		this.dlugosc = l;
+	}
 	public String getLancuch() {
 		return lancuch;
 	}
@@ -31,11 +40,6 @@ class Oligonukleotyd {
 	public void setLiczbaSlow(int liczbaSlow) {
 		this.liczbaSlow = liczbaSlow;
 	}
-	private String lancuch;
-	private Oligonukleotyd poprzedni;
-	private Oligonukleotyd nastepny;
-	private int dlugosc;
-	private int liczbaSlow;
 
 
 }
