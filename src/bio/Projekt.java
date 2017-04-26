@@ -1,6 +1,11 @@
 package bio;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
 public class Projekt {
 
@@ -9,11 +14,45 @@ public class Projekt {
 	private static int prawdopodobienstwoKrzyzowania;
 	private static int[][] grafOl;
 	private static Oligonukleotyd[] instancja;
+	private static int liczbaIteracji;
+	private static List<Rozwiazanie> populacja;
 	public static void main(String[] args) {
 		try {
 			instancja = new Wczytywacz().wczytajDane(args[0]);
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+		instancja = new Przedprzetwarzacz().przetworz(instancja);
+		populacja = new Generator().generuj(instancja, rozmiarPopulacji);
+		Mutator mutator = new Mutator();
+		Krzyzer krzyzer = new Krzyzer();
+		Eliminator eliminator = new Eliminator();
+		Random rand = new Random();
+		for(int i = 0; i <liczbaIteracji; i++)
+		{
+			List<Rozwiazanie> temp = new ArrayList<Rozwiazanie>();
+			for(Rozwiazanie r1 : populacja)
+			{
+				if(rand.nextInt(100) < prawdopodobienstwoMutacji)
+				{
+					temp.add(mutator.mutuj(r1));
+				}
+			}
+			for(Rozwiazanie r1 : temp) populacja.add(r1);
+			temp.clear();
+			for(Rozwiazanie r1 : populacja)
+			{
+				if(rand.nextInt(100) < prawdopodobienstwoKrzyzowania)
+				{
+					int l = rand.nextInt(populacja.size() - 1);
+					Rozwiazanie r2 = populacja.get(l);
+					if(r2.equals(r1)) r2 = populacja.get(populacja.size()-1);
+					temp.add(krzyzer.krzyzuj(r1,r2));
+				}
+			}
+			for(Rozwiazanie r1 : temp) populacja.add(r1);
+			temp.clear();
+			populacja = eliminator.turniej(populacja);
 		}
 
 	}
