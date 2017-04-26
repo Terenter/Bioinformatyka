@@ -6,9 +6,12 @@ class Oligonukleotyd {
 	private int nastepny = -1;
 	private int dlugosc;
 	private int liczbaSlow = 1;
+	private int indeks;
+	
 	public Oligonukleotyd(String lancuch, int l) {
 		this.lancuch = lancuch;
 		this.dlugosc = l;
+		
 	}
 	public String getLancuch() {
 		return lancuch;
@@ -39,6 +42,12 @@ class Oligonukleotyd {
 	}
 	public void setLiczbaSlow(int liczbaSlow) {
 		this.liczbaSlow = liczbaSlow;
+	}
+	public int getIndeks() {
+		return indeks;
+	}
+	public void setIndeks(int indeks) {
+		this.indeks = indeks;
 	}
 
 

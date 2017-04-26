@@ -1,5 +1,7 @@
 package bio;
 
+import java.util.ArrayList;
+
 class Przedprzetwarzacz {
 
 	public int[][]  generujGraf(Oligonukleotyd[] dane){
@@ -26,7 +28,7 @@ class Przedprzetwarzacz {
 		return L;
 	}
 	
-	public void znajdzPolaczenia(int [][] graf, Oligonukleotyd[] dane){
+	private void znajdzPolaczenia(int [][] graf, Oligonukleotyd[] dane){
 		int n=dane.length;
 		int indeks,indeks2;
 		for(int i=0;i<n;i++){
@@ -64,13 +66,26 @@ class Przedprzetwarzacz {
 		Oligonukleotyd o = new Oligonukleotyd(o1.getLancuch()+o2.getLancuch().substring(o2.getDlugosc()-o1.getDlugosc()-1),o1.getDlugosc()+o2.getDlugosc()-10);
 		o.setLiczbaSlow(o1.getLiczbaSlow()+o2.getLiczbaSlow());
 		o.setPoprzedni(o1.getPoprzedni());
-		o.setNastepny(o2.getNastepny());
+		if(o2.getNastepny()!=o2.getIndeks())o.setNastepny(o2.getNastepny());
+		else o.setNastepny(o1.getIndeks());
+		o.setIndeks(o1.getIndeks());
 		return o;
 		
 	}
 
 	public Oligonukleotyd[] przetworz(int[][] grafOl, Oligonukleotyd[] instancja) {
-		// TODO Auto-generated method stub
-		return null;
+		znajdzPolaczenia(grafOl, instancja);
+		ArrayList<Oligonukleotyd> nowa=new ArrayList<Oligonukleotyd>();
+		for(int i=0;i<instancja.length;i++){
+			if(instancja[i].getPoprzedni()==i){
+				while(instancja[i].getNastepny()!=i){
+					instancja[i] = zlacz(instancja[i],instancja[instancja[i].getNastepny()]); 
+				}
+				nowa.add(instancja[i]);
+				int x=nowa.size()-1;
+				nowa.get(x).setIndeks(x);
+			}
+		}
+		return (Oligonukleotyd[]) nowa.toArray();
 	}
 }
