@@ -68,4 +68,9 @@ class Przedprzetwarzacz {
 		return o;
 		
 	}
+
+	public Oligonukleotyd[] przetworz(int[][] grafOl, Oligonukleotyd[] instancja) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -22,8 +22,12 @@ public class Projekt {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		instancja = new Przedprzetwarzacz().przetworz(instancja);
+		Przedprzetwarzacz przedp = new Przedprzetwarzacz();
+		grafOl = przedp.generujGraf(instancja);
+		instancja = przedp.przetworz(grafOl, instancja);
+		grafOl = przedp.generujGraf(instancja);
 		populacja = new Generator().generuj(instancja, rozmiarPopulacji);
+		for(Rozwiazanie r1 : populacja) r1.przeliczWartosc(grafOl);
 		Mutator mutator = new Mutator();
 		Krzyzer krzyzer = new Krzyzer();
 		Eliminator eliminator = new Eliminator();
@@ -38,7 +42,11 @@ public class Projekt {
 					temp.add(mutator.mutuj(r1));
 				}
 			}
-			for(Rozwiazanie r1 : temp) populacja.add(r1);
+			for(Rozwiazanie r1 : temp)
+			{
+				r1.przeliczWartosc(grafOl);
+				populacja.add(r1);
+			}
 			temp.clear();
 			for(Rozwiazanie r1 : populacja)
 			{
@@ -50,7 +58,11 @@ public class Projekt {
 					temp.add(krzyzer.krzyzuj(r1,r2));
 				}
 			}
-			for(Rozwiazanie r1 : temp) populacja.add(r1);
+			for(Rozwiazanie r1 : temp)
+			{
+				r1.przeliczWartosc(grafOl);
+				populacja.add(r1);
+			}
 			temp.clear();
 			populacja = eliminator.turniej(populacja);
 		}
