@@ -13,7 +13,7 @@ class Mutator {
 		{
 			indeks2 = rand.nextInt(size);
 		}
-		r1.zamienSlowo(indeks1, indeks2);
+		r1.przesunSlowo(indeks1, indeks2);
 		return r1;
 	}
 
