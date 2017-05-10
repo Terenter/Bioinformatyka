@@ -29,11 +29,27 @@ których indeks zgadza się z ich indeksem początkowym.
 	rozwiązań początkowych oraz wykonywanych cyklicznie mutacji i krzyżowania rozwiązań
 	(skutkujące zwiększeniem liczności populacji rozwiązań) i turnieju, który po dwóch
 	poprzednich etapach przywraca populację do początkowego rozmiaru, z zadaną liczbą iteracji.
-	I.3.1 Generowanie populacji początkowej
-	I.3.2 Mutacja
-	I.3.3 Krzyżowanie
-	I.3.4 Turniej
-
-
+	I.3.1 Generowanie populacji początkowej: Tworzona jest zadana liczba rozwiązań, do których oligonukleotydy dodawane
+		są w losoej kolejności.
+	I.3.2 Mutacja: dla każdego rozwiązania z populacji losowana jest wartość,
+		która porównywana jest z parametrem prawdopodobieństwa ewolucji i,
+		jeśli jest mniejsza, przeprowadzana jest ewolucja tego rozwiązania.
+		Polega ona na przesunięciu losowo wybranego oligonukleotydu w rozwiązaniu
+		o wylosowaną liczbę pozycji, przy czym jeżeli oligonukleotyd znalazłby
+		się przed początkiem rozwiązania ustawiany jest na jego początku, zaś jeśli
+		znalazłaby się za jego końcem przesunięcie w ogóle nie zachodzi.
+	I.3.3 Krzyżowanie: dla każdego rozwiązania z populacji losowana
+		jest wartość, która porównywana jest z parametrem prawdopodobieństwa
+		krzyżowania i, jeśli jest mniejsza, przeprowadzana jest krzyżowanie
+		tego rozwiązania z losowo wybranym innym rozwiązaniem. Podczas krzyżowania 
+		oligonukletody pierwszego rozwiązania są rozdzielone na dwa zbiorów.
+		Operacje z pierwszej połowy pierwszego rozwiązania według liczby słów są dodawane do pierwszej połowy
+		rozwiązania wynikowego według kolejności w pierszym rozwiązaniu, a te z drugiej połowy według kolejności
+		w rozwiązaniu drugim.
+	I.3.4 Turniej: Przed rozpoczęciem turnieju ustalana jest wartość funkcji celu
+		dla wszystkich rozwiązań - liczba słów mieszczących się w zadanej długości łańcucha wynikowego.
+		W trakcie turnieju z grupy w kolejnych w rozwiązań, 
+		gdzie w = aktualny rozmiar populacji / rozmiar populacji początkowej (zaokrąglając w górę),
+		wybierane jest to o największej wartości funkcji celu i dodawane do populacji wynikowej tej iteracji.
 
 II. Przypadki o określonych błędach

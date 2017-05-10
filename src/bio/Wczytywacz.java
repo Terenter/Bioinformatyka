@@ -27,6 +27,9 @@ class Wczytywacz {
 		for(int i = 0; i < S+b; i++)
 		{
 			dane[i] = new Oligonukleotyd(br.readLine(), l);
+			dane[i].setIndeks(i);
+			dane[i].setNastepny(i);
+			dane[i].setPoprzedni(i);
 			
 		}
 		br.close();
