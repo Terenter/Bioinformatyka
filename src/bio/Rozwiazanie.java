@@ -38,6 +38,10 @@ public class Rozwiazanie implements Cloneable {
 		rNew.Slowa = Slowa;
 		return rNew;
 	}
+
+	public void dodajSlowo(Oligonukleotyd o) {
+		Slowa.add(o);		
+	}
 	
 	
 
