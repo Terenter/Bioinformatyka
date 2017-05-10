@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Rozwiazanie {
+public class Rozwiazanie implements Cloneable {
 
 	private int wartosc;
 	private List<Oligonukleotyd>Slowa = new ArrayList<Oligonukleotyd>();
@@ -26,6 +26,13 @@ public class Rozwiazanie {
 	public void przeliczWartosc(int[][] grafOl) {
 		
 	}
+	
+	public Rozwiazanie clone(){
+		Rozwiazanie rNew = new Rozwiazanie();
+		rNew.Slowa = Slowa;
+		return rNew;
+	}
+	
 	
 
 }

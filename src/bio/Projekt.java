@@ -39,7 +39,7 @@ public class Projekt {
 			{
 				if(rand.nextInt(100) < prawdopodobienstwoMutacji)
 				{
-					temp.add(mutator.mutuj(r1));
+					temp.add(mutator.mutuj(r1.clone()));
 				}
 			}
 			for(Rozwiazanie r1 : temp)
