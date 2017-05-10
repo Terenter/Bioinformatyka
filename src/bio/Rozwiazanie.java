@@ -1,12 +1,31 @@
 package bio;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Rozwiazanie {
 
 	private int wartosc;
+	private List<Oligonukleotyd>Slowa = new ArrayList<Oligonukleotyd>();
 	
+	public int getWartosc() {
+		return wartosc;
+	}
+
+	public List<Oligonukleotyd> getSlowa() {
+		return Slowa;
+	}
+	
+	public void zamienSlowo(int indeks, int nowyIndeks){
+		Slowa.get(indeks).setIndeks(nowyIndeks);
+		Slowa.get(nowyIndeks).setIndeks(indeks);
+		Collections.sort(Slowa);
+	}
+
 	public void przeliczWartosc(int[][] grafOl) {
-		// TODO Auto-generated method stub
 		
 	}
+	
 
 }
