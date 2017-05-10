@@ -27,7 +27,9 @@ public class Rozwiazanie implements Cloneable {
 		wartosc=0;
 		int[][] graf = Projekt.getGrafOl();
 		for(int i =0;i<rozmiar-1;i++){
-			wartosc+=graf[i][i+1];
+			int i1=Slowa.get(i).getIndeks();
+			int i2=Slowa.get(i+1).getIndeks();
+			wartosc+=graf[i1][i2];
 		}
 	}
 	
