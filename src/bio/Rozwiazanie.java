@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Rozwiazanie implements Cloneable {
-	private int rozmiar;
-	private int wartosc;
+	private int rozmiar=0;
+	private int wartosc=0;
 	private List<Oligonukleotyd>Slowa = new ArrayList<Oligonukleotyd>();
 	
 	public Rozwiazanie(List<Oligonukleotyd> clone) {
 		Slowa = clone;
+		setRozmiar(clone.size());
 	}
 
 	public int getWartosc() {
@@ -27,12 +28,20 @@ public class Rozwiazanie implements Cloneable {
 	}
 
 	public void przeliczWartosc(int[][] grafOl) {
-		wartosc=0;
+		Oligonukleotyd s1=Slowa.get(0);
+		wartosc=s1.getLiczbaSlow();
+		int dlugosc=s1.getDlugosc();
 		int[][] graf = Projekt.getGrafOl();
-		for(int i =0;i<rozmiar-1;i++){
-			int i1=Slowa.get(i).getIndeks();
-			int i2=Slowa.get(i+1).getIndeks();
-			wartosc+=graf[i1][i2];
+		int i=1;
+		while(dlugosc<Projekt.getDlugoscSekwencji()&&i<Slowa.size()){
+			Oligonukleotyd s2=Slowa.get(i++);
+			int i1=s1.getIndeks();
+			int i2=s2.getIndeks();
+			dlugosc+=graf[i1][i2];
+			if(dlugosc<=Projekt.getDlugoscSekwencji()){
+				wartosc+=s2.getLiczbaSlow();
+				s1=s2;
+			}
 		}
 	}
 	
@@ -43,6 +52,14 @@ public class Rozwiazanie implements Cloneable {
 
 	public void dodajSlowo(Oligonukleotyd o) {
 		Slowa.add(o);		
+	}
+
+	public int getRozmiar() {
+		return rozmiar;
+	}
+
+	public void setRozmiar(int rozmiar) {
+		this.rozmiar = rozmiar;
 	}
 	
 	

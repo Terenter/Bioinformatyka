@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Projekt {
-
+	private static int dlugoscSekwencji;
 	private static int rozmiarPopulacji;
 	private static int prawdopodobienstwoMutacji;
 	private static int prawdopodobienstwoKrzyzowania;
@@ -96,6 +96,12 @@ public class Projekt {
 	}
 	public static void setInstancja(Oligonukleotyd[] instancja) {
 		Projekt.instancja = instancja;
+	}
+	public static int getDlugoscSekwencji() {
+		return dlugoscSekwencji;
+	}
+	public static void setDlugoscSekwencji(int dlugoscSekwencji) {
+		Projekt.dlugoscSekwencji = dlugoscSekwencji;
 	}
 	
 	
