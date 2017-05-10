@@ -1,7 +1,6 @@
 package bio;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Rozwiazanie implements Cloneable {
@@ -9,6 +8,10 @@ public class Rozwiazanie implements Cloneable {
 	private int wartosc;
 	private List<Oligonukleotyd>Slowa = new ArrayList<Oligonukleotyd>();
 	
+	public Rozwiazanie(List<Oligonukleotyd> clone) {
+		Slowa = clone;
+	}
+
 	public int getWartosc() {
 		return wartosc;
 	}
@@ -34,8 +37,7 @@ public class Rozwiazanie implements Cloneable {
 	}
 	
 	public Rozwiazanie clone(){
-		Rozwiazanie rNew = new Rozwiazanie();
-		rNew.Slowa = Slowa;
+		Rozwiazanie rNew = new Rozwiazanie( new ArrayList<Oligonukleotyd>(Slowa));
 		return rNew;
 	}
 

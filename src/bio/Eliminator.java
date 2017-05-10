@@ -3,9 +3,6 @@ package bio;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Vector;
-
-import com.sun.org.apache.bcel.internal.generic.PopInstruction;
 
 class Eliminator {
 
