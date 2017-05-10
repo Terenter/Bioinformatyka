@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Rozwiazanie implements Cloneable {
-
+	private int rozmiar;
 	private int wartosc;
 	private List<Oligonukleotyd>Slowa = new ArrayList<Oligonukleotyd>();
 	
@@ -24,7 +24,11 @@ public class Rozwiazanie implements Cloneable {
 	}
 
 	public void przeliczWartosc(int[][] grafOl) {
-		
+		wartosc=0;
+		int[][] graf = Projekt.getGrafOl();
+		for(int i =0;i<rozmiar-1;i++){
+			wartosc+=graf[i][i+1];
+		}
 	}
 	
 	public Rozwiazanie clone(){
