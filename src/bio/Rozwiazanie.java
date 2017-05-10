@@ -17,10 +17,10 @@ public class Rozwiazanie implements Cloneable {
 		return Slowa;
 	}
 	
-	public void zamienSlowo(int indeks, int nowyIndeks){
-		Slowa.get(indeks).setIndeks(nowyIndeks);
-		Slowa.get(nowyIndeks).setIndeks(indeks);
-		Collections.sort(Slowa);
+	public void przesunSlowo(int indeks, int nowyIndeks){
+		Oligonukleotyd temp = Slowa.get(indeks);
+		Slowa.remove(temp);
+		Slowa.add(nowyIndeks, temp);
 	}
 
 	public void przeliczWartosc(int[][] grafOl) {
