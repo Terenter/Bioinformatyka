@@ -88,6 +88,9 @@ public class Projekt {
 			if(populacja.get(i).getWartosc() > best.getWartosc()) best = populacja.get(i);
 		}
 		System.out.println(best.getWartosc());
+		for(Oligonukleotyd i : best.getSlowa()){
+			System.out.println(i.getLancuch());
+		}
 
 	}
 	public static int getRozmiarPopulacji() {
