@@ -41,6 +41,7 @@ public class Projekt {
 		}
 		Przedprzetwarzacz przedp = new Przedprzetwarzacz();
 		grafOl = przedp.generujGraf(instancja);
+		System.out.println(grafOl);
 		instancja = przedp.przetworz(grafOl, instancja);
 		grafOl = przedp.generujGraf(instancja);
 		populacja = new Generator().generuj(instancja, rozmiarPopulacji);
