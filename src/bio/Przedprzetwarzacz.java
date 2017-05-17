@@ -1,5 +1,6 @@
 package bio;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 class Przedprzetwarzacz {
@@ -20,20 +21,28 @@ class Przedprzetwarzacz {
 		String l=lewy.getLancuch();
 		String p=prawy.getLancuch();
 		int L=l.length();
-		for(int i=1;i<L;i++){
-			if(l.substring(i).equals(p.substring(0, L-i-1))){
+		int P = p.length();
+		for(int i=1;i<min(L,P);i++){
+			//System.out.println(l.substring(i) + " " + p.substring(0, L-i));
+			if(l.substring(i).equals(p.substring(0, P-i))){
 				return i;
 			}
 		}
 		return L;
 	}
 	
+	private int min(int l, int p) {
+		if(l > p) return p;
+		return l;
+	}
+
 	private void znajdzPolaczenia(int [][] graf, Oligonukleotyd[] dane){
 		int n=dane.length;
 		int indeks,indeks2;
 		for(int i=0;i<n;i++){
 			indeks=-1;
-			for(int j=0;j<n;j++){	
+			for(int j=0;j<n;j++){
+				//System.out.println(graf[i][j]);
 				if(graf[i][j]==1){
 					if(indeks!=-1){
 						indeks=-1;
@@ -42,6 +51,12 @@ class Przedprzetwarzacz {
 					indeks=j;
 				}
 			}
+			/*try {
+				System.in.read();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}*/
 			if(indeks!=-1){
 				indeks2=-1;
 				for(int k=0;k<n;k++){
@@ -63,7 +78,7 @@ class Przedprzetwarzacz {
 	
 	private Oligonukleotyd zlacz(Oligonukleotyd o1, Oligonukleotyd o2)
 	{
-		Oligonukleotyd o = new Oligonukleotyd(o1.getLancuch()+o2.getLancuch().substring(o2.getDlugosc()-o1.getDlugosc()-1),o1.getDlugosc()+o2.getDlugosc()-10);
+		Oligonukleotyd o = new Oligonukleotyd(o1.getLancuch()+o2.getLancuch().substring(o2.getDlugosc()-2),o1.getDlugosc()+1);
 		o.setLiczbaSlow(o1.getLiczbaSlow()+o2.getLiczbaSlow());
 		o.setPoprzedni(o1.getPoprzedni());
 		if(o2.getNastepny()!=o2.getIndeks())o.setNastepny(o2.getNastepny());
