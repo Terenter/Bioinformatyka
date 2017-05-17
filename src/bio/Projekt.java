@@ -7,6 +7,25 @@ import java.util.Random;
 
 public class Projekt {
 	private static int dlugoscSekwencji;
+	private static int liczbaSlow;
+	public static int getLiczbaSlow() {
+		return liczbaSlow;
+	}
+	public static void setLiczbaSlow(int liczbaSlow) {
+		Projekt.liczbaSlow = liczbaSlow;
+	}
+	public static int getLiczbaIteracji() {
+		return liczbaIteracji;
+	}
+	public static void setLiczbaIteracji(int liczbaIteracji) {
+		Projekt.liczbaIteracji = liczbaIteracji;
+	}
+	public static List<Rozwiazanie> getPopulacja() {
+		return populacja;
+	}
+	public static void setPopulacja(List<Rozwiazanie> populacja) {
+		Projekt.populacja = populacja;
+	}
 	private static int rozmiarPopulacji;
 	private static int prawdopodobienstwoMutacji;
 	private static int prawdopodobienstwoKrzyzowania;
@@ -64,6 +83,11 @@ public class Projekt {
 			temp.clear();
 			populacja = eliminator.turniej(populacja);
 		}
+		Rozwiazanie best = populacja.get(0);
+		for(int i = 1; i < populacja.size(); i++){
+			if(populacja.get(i).getWartosc() > best.getWartosc()) best = populacja.get(i);
+		}
+		System.out.println(best.getWartosc());
 
 	}
 	public static int getRozmiarPopulacji() {

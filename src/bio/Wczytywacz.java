@@ -31,6 +31,7 @@ class Wczytywacz {
 			dane[i].setPoprzedni(i);
 			
 		}
+		Projekt.setLiczbaSlow(S+b);
 		br.close();
 		fr.close();
 		return dane;
