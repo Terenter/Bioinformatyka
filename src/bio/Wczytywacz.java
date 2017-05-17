@@ -7,17 +7,19 @@ import java.io.IOException;
 class Wczytywacz {
 	public Oligonukleotyd[] wczytajDane(String plik) throws IOException
 	{
+		//System.out.println(plik);
+		//System.out.println(plik.split("\\.").length);
 		int S = 0;
 		int b = 0;
 		if(plik.contains("+"))
 		{
-			S = Integer.parseInt(plik.split(".")[1].split("+")[0]);
-			b = Integer.parseInt(plik.split(".")[1].split("+")[1]);
+			S = Integer.parseInt(plik.split("\\.")[1].split("+")[0]);
+			b = Integer.parseInt(plik.split("\\.")[1].split("+")[1]);
 		}
 		else
 		{
-			S = Integer.parseInt(plik.split(".")[1].split("-")[0]);
-			b = -Integer.parseInt(plik.split(".")[1].split("-")[1]);
+			S = Integer.parseInt(plik.split("\\.")[1].split("-")[0]);
+			b = -Integer.parseInt(plik.split("\\.")[1].split("-")[1]);
 		}
 		int l = 10;
 		FileReader fr = new FileReader(plik);
@@ -32,6 +34,7 @@ class Wczytywacz {
 			
 		}
 		Projekt.setLiczbaSlow(S+b);
+		Projekt.setDlugoscSekwencji(S+9);
 		br.close();
 		fr.close();
 		return dane;

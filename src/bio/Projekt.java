@@ -26,9 +26,9 @@ public class Projekt {
 	public static void setPopulacja(List<Rozwiazanie> populacja) {
 		Projekt.populacja = populacja;
 	}
-	private static int rozmiarPopulacji;
-	private static int prawdopodobienstwoMutacji;
-	private static int prawdopodobienstwoKrzyzowania;
+	private static int rozmiarPopulacji = 50;
+	private static int prawdopodobienstwoMutacji = 100;
+	private static int prawdopodobienstwoKrzyzowania = 100;
 	private static int[][] grafOl;
 	private static Oligonukleotyd[] instancja;
 	private static int liczbaIteracji;

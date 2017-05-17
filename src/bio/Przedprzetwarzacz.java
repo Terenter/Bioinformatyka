@@ -86,6 +86,6 @@ class Przedprzetwarzacz {
 				nowa.get(x).setIndeks(x);
 			}
 		}
-		return (Oligonukleotyd[]) nowa.toArray();
+		return nowa.toArray(new Oligonukleotyd[nowa.size()]);
 	}
 }
