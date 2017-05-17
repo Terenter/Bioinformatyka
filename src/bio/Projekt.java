@@ -33,6 +33,8 @@ public class Projekt {
 	private static Oligonukleotyd[] instancja;
 	private static int liczbaIteracji = 10;
 	private static List<Rozwiazanie> populacja;
+	
+	
 	public static void main(String[] args) {
 		try {
 			instancja = new Wczytywacz().wczytajDane(args[0]);
@@ -41,8 +43,15 @@ public class Projekt {
 		}
 		Przedprzetwarzacz przedp = new Przedprzetwarzacz();
 		grafOl = przedp.generujGraf(instancja);
+
 		instancja = przedp.przetworz(grafOl, instancja);
 		grafOl = przedp.generujGraf(instancja);
+//		for(int [] l : grafOl){
+//			for(int i:l){
+//				System.out.print(i+",");
+//			}
+//			System.out.println("|");
+//		}
 		populacja = new Generator().generuj(instancja, rozmiarPopulacji);
 		for(Rozwiazanie r1 : populacja)
 		{
