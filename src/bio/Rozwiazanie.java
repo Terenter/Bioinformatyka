@@ -45,6 +45,25 @@ public class Rozwiazanie implements Cloneable {
 		}
 	}
 	
+	public String Wynik(int[][] grafOl){
+		Oligonukleotyd s1=Slowa.get(0);
+		String wynik = s1.getLancuch();
+		int dlugosc=s1.getDlugosc();
+		int[][] graf = Projekt.getGrafOl();
+		int i=1;
+		while(dlugosc<Projekt.getDlugoscSekwencji()&&i<Slowa.size()){
+			Oligonukleotyd s2=Slowa.get(i++);
+			int i1=s1.getIndeks();
+			int i2=s2.getIndeks();
+			dlugosc+=graf[i1][i2];
+			if(dlugosc<=Projekt.getDlugoscSekwencji()){
+				wynik += s2.getLancuch().substring(s1.getLancuch().length() - graf[i1][i2]);
+				s1=s2;
+			}
+		}
+		return null;
+	}
+	
 	public Rozwiazanie clone(){
 		Rozwiazanie rNew = new Rozwiazanie( new ArrayList<Oligonukleotyd>(Slowa));
 		return rNew;

@@ -26,12 +26,12 @@ public class Projekt {
 	public static void setPopulacja(List<Rozwiazanie> populacja) {
 		Projekt.populacja = populacja;
 	}
-	private static int rozmiarPopulacji = 500;
+	private static int rozmiarPopulacji = 50;
 	private static int prawdopodobienstwoMutacji = 100;
 	private static int prawdopodobienstwoKrzyzowania = 100;
 	private static int[][] grafOl;
 	private static Oligonukleotyd[] instancja;
-	private static int liczbaIteracji = 10;
+	private static int liczbaIteracji = 1000;
 	private static List<Rozwiazanie> populacja;
 	
 	
@@ -46,12 +46,14 @@ public class Projekt {
 
 		instancja = przedp.przetworz(grafOl, instancja);
 		grafOl = przedp.generujGraf(instancja);
-//		for(int [] l : grafOl){
-//			for(int i:l){
-//				System.out.print(i+",");
-//			}
-//			System.out.println("|");
-//		}
+		int j = 0;
+		for(int [] l : grafOl){
+			System.out.print(instancja[j++].getLancuch().length()+" ");
+			for(int i:l){
+				System.out.print(i+",");
+			}
+			System.out.println("|");
+		}
 		populacja = new Generator().generuj(instancja, rozmiarPopulacji);
 		for(Rozwiazanie r1 : populacja)
 		{
@@ -110,6 +112,7 @@ public class Projekt {
 		for(Oligonukleotyd i : best.getSlowa()){
 			System.out.println(i.getLancuch());
 		}
+		System.out.println(best.Wynik(grafOl));
 
 	}
 	public static int getRozmiarPopulacji() {
