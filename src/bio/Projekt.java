@@ -43,14 +43,15 @@ public class Projekt {
 		}
 		Przedprzetwarzacz przedp = new Przedprzetwarzacz();
 		grafOl = przedp.generujGraf(instancja);
-		for(int [] l : grafOl){
-			for(int i:l){
-				System.out.print(i+",");
-			}
-			System.out.println("|");
-		}
+
 		instancja = przedp.przetworz(grafOl, instancja);
 		grafOl = przedp.generujGraf(instancja);
+//		for(int [] l : grafOl){
+//			for(int i:l){
+//				System.out.print(i+",");
+//			}
+//			System.out.println("|");
+//		}
 		populacja = new Generator().generuj(instancja, rozmiarPopulacji);
 		for(Rozwiazanie r1 : populacja) r1.przeliczWartosc(grafOl);
 		Mutator mutator = new Mutator();

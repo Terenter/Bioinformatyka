@@ -1,6 +1,5 @@
 package bio;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 class Przedprzetwarzacz {
@@ -22,19 +21,25 @@ class Przedprzetwarzacz {
 		String p=prawy.getLancuch();
 		int L=l.length();
 		int P = p.length();
-		for(int i=1;i<min(L,P);i++){
-			//System.out.println(l.substring(i) + " " + p.substring(0, L-i));
-			if(l.substring(i).equals(p.substring(0, P-i))){
-				return i;
+		if(L<=P){
+			for(int i=1;i<L;i++){
+				//System.out.println(l.substring(i) + " " + p.substring(0, L-i));
+				if(l.substring(i).equals(p.substring(0, L-i))){
+					return i;
+				}
 			}
+			return L;
+		} else{
+			for(int i=1;i<P;i++){
+				//System.out.println(l.substring(i) + " " + p.substring(0, L-i));
+				if(l.substring(L-P+i).equals(p.substring(0, P-i))){
+					return i;
+				}
+			}
+			return P;
 		}
-		return L;
 	}
 	
-	private int min(int l, int p) {
-		if(l > p) return p;
-		return l;
-	}
 
 	private void znajdzPolaczenia(int [][] graf, Oligonukleotyd[] dane){
 		int n=dane.length;
