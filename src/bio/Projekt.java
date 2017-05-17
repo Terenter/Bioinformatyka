@@ -44,7 +44,17 @@ public class Projekt {
 		instancja = przedp.przetworz(grafOl, instancja);
 		grafOl = przedp.generujGraf(instancja);
 		populacja = new Generator().generuj(instancja, rozmiarPopulacji);
-		for(Rozwiazanie r1 : populacja) r1.przeliczWartosc(grafOl);
+		for(Rozwiazanie r1 : populacja)
+		{
+			r1.przeliczWartosc(grafOl);
+		}
+//		for(Rozwiazanie r1 : populacja) System.out.println(r1.getWartosc());
+//		try {
+//			System.in.read();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		Mutator mutator = new Mutator();
 		Krzyzer krzyzer = new Krzyzer();
 		Eliminator eliminator = new Eliminator();
