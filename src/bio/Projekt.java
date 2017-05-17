@@ -26,12 +26,12 @@ public class Projekt {
 	public static void setPopulacja(List<Rozwiazanie> populacja) {
 		Projekt.populacja = populacja;
 	}
-	private static int rozmiarPopulacji = 500;
+	private static int rozmiarPopulacji = 1000;
 	private static int prawdopodobienstwoMutacji = 100;
 	private static int prawdopodobienstwoKrzyzowania = 100;
 	private static int[][] grafOl;
 	private static Oligonukleotyd[] instancja;
-	private static int liczbaIteracji = 10;
+	private static int liczbaIteracji = 1000;
 	private static List<Rozwiazanie> populacja;
 	
 	

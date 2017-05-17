@@ -38,6 +38,7 @@ public class Rozwiazanie implements Cloneable {
 			int i1=s1.getIndeks();
 			int i2=s2.getIndeks();
 			dlugosc+=graf[i1][i2];
+			if(s2.getDlugosc()>s1.getDlugosc())dlugosc+=s2.getDlugosc()-s1.getDlugosc();
 			if(dlugosc<=Projekt.getDlugoscSekwencji()){
 				wartosc+=s2.getLiczbaSlow();
 				s1=s2;
