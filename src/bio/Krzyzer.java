@@ -10,7 +10,7 @@ class Krzyzer {
 		int m = 0;
 		List<Oligonukleotyd> rTemp = new ArrayList<Oligonukleotyd>();
 		int i=0;
-		while(m <= (Projekt.getLiczbaSlow()/2)-1){
+		while(m <= (Projekt.getLiczbaSlow()/2)-1 && i < r1.getSlowa().size()){
 			m += r1.getSlowa().get(i++).getLiczbaSlow();
 		}
 		m = i;

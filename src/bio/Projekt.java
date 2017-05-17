@@ -26,12 +26,12 @@ public class Projekt {
 	public static void setPopulacja(List<Rozwiazanie> populacja) {
 		Projekt.populacja = populacja;
 	}
-	private static int rozmiarPopulacji = 50;
+	private static int rozmiarPopulacji = 500;
 	private static int prawdopodobienstwoMutacji = 100;
 	private static int prawdopodobienstwoKrzyzowania = 100;
 	private static int[][] grafOl;
 	private static Oligonukleotyd[] instancja;
-	private static int liczbaIteracji;
+	private static int liczbaIteracji = 10;
 	private static List<Rozwiazanie> populacja;
 	public static void main(String[] args) {
 		try {
@@ -72,7 +72,7 @@ public class Projekt {
 					int l = rand.nextInt(populacja.size() - 1);
 					Rozwiazanie r2 = populacja.get(l);
 					if(r2.equals(r1)) r2 = populacja.get(populacja.size()-1);
-					temp.add(krzyzer.krzyzuj(r1,r2));
+					temp.add(krzyzer.krzyzuj(r1.clone(),r2.clone()));
 				}
 			}
 			for(Rozwiazanie r1 : temp)
