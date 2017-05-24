@@ -1,5 +1,6 @@
 package bio;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 class Przedprzetwarzacz {
@@ -23,15 +24,27 @@ class Przedprzetwarzacz {
 		int P = p.length();
 		if(L<=P){
 			for(int i=1;i<L;i++){
-				//System.out.println(l.substring(i) + " " + p.substring(0, L-i));
+//				System.out.println(l.substring(i) + " " + p.substring(0, L-i));
+//				try {
+//					System.in.read();
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
 				if(l.substring(i).equals(p.substring(0, L-i))){
 					return i;
 				}
 			}
 			return L;
 		} else{
-			for(int i=1;i<P;i++){
-				//System.out.println(l.substring(i) + " " + p.substring(0, L-i));
+			for(int i=0;i<P;i++){
+//				System.out.println(l.substring(L-P+i) + " " + p.substring(0, P-i));
+//				try {
+//					System.in.read();
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
 				if(l.substring(L-P+i).equals(p.substring(0, P-i))){
 					return L-P+i;
 				}
