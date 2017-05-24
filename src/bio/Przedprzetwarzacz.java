@@ -33,10 +33,10 @@ class Przedprzetwarzacz {
 			for(int i=1;i<P;i++){
 				//System.out.println(l.substring(i) + " " + p.substring(0, L-i));
 				if(l.substring(L-P+i).equals(p.substring(0, P-i))){
-					return i;
+					return L-P+i;
 				}
 			}
-			return P;
+			return L;
 		}
 	}
 	
