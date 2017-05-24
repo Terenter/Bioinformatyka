@@ -13,8 +13,8 @@ class Wczytywacz {
 		int b = 0;
 		if(plik.contains("+"))
 		{
-			S = Integer.parseInt(plik.split("\\.")[1].split("+")[0]);
-			b = Integer.parseInt(plik.split("\\.")[1].split("+")[1]);
+			S = Integer.parseInt(plik.split("\\.")[1].split("\\+")[0]);
+			b = Integer.parseInt(plik.split("\\.")[1].split("\\+")[1]);
 		}
 		else
 		{

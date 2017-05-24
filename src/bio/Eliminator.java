@@ -18,6 +18,7 @@ class Eliminator {
 			x1 = rand.nextInt(n2);
 			for (int j = 0; j < grupa; j++) {
 				x2 = rand.nextInt(n2);
+				while(x2==x1)x2 = rand.nextInt(n2);
 				if (populacja.get(x2).getWartosc() > populacja.get(x1).getWartosc()) {
 					x1 = x2;
 				}
