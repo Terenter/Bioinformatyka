@@ -26,11 +26,7 @@ public class Projekt {
 	public static void setPopulacja(List<Rozwiazanie> populacja) {
 		Projekt.populacja = populacja;
 	}
-<<<<<<< HEAD
 	private static int rozmiarPopulacji = 50;
-=======
-	private static int rozmiarPopulacji = 1000;
->>>>>>> branch 'sec' of https://github.com/Terenter/bioinformatyka
 	private static int prawdopodobienstwoMutacji = 100;
 	private static int prawdopodobienstwoKrzyzowania = 100;
 	private static int[][] grafOl;
