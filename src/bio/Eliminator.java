@@ -6,7 +6,7 @@ import java.util.Random;
 
 class Eliminator {
 
-	public int grupa = 4;
+	public int grupa = 15;
 
 	public List<Rozwiazanie> turniej(List<Rozwiazanie> populacja) {
 		int n = Projekt.getRozmiarPopulacji();
