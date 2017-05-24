@@ -48,13 +48,13 @@ public class Projekt {
 		instancja = przedp.przetworz(grafOl, instancja);
 		grafOl = przedp.generujGraf(instancja);
 		int j = 0;
-		for(int [] l : grafOl){
-			System.out.print(instancja[j++].getLancuch().length()+" ");
-			for(int i:l){
-				System.out.print(i+",");
-			}
-			System.out.println("|");
-		}
+//		for(int [] l : grafOl){
+//			System.out.print(instancja[j++].getLancuch().length()+" ");
+//			for(int i:l){
+//				System.out.print(i+",");
+//			}
+//			System.out.println("|");
+//		}
 		populacja = new Generator().generuj(instancja, rozmiarPopulacji);
 		for(Rozwiazanie r1 : populacja)
 		{
@@ -94,7 +94,14 @@ public class Projekt {
 					int l = rand.nextInt(populacja.size() - 1);
 					Rozwiazanie r2 = populacja.get(l);
 					if(r2.equals(r1)) r2 = populacja.get(populacja.size()-1);
-					temp.add(krzyzer.krzyzuj(r1.clone(),r2.clone()));
+					int l1 = rand.nextInt(Projekt.getLiczbaSlow());
+					Rozwiazanie[] table = krzyzer.krzyzuj(r1.clone(),r2.clone(),l1);
+					temp.add(table[0]);
+					temp.add(table[1]);
+					l1 = rand.nextInt(Projekt.getLiczbaSlow());
+					table = krzyzer.krzyzuj(r2.clone(),r1.clone(),l1);
+					temp.add(table[0]);
+					temp.add(table[1]);
 				}
 			}
 			for(Rozwiazanie r1 : temp)
@@ -118,7 +125,7 @@ public class Projekt {
 		for(Oligonukleotyd i : best.getSlowa()){
 			System.out.println(i.getLancuch());
 		}
-		System.out.println(best.Wynik(grafOl));
+		//System.out.println(best.Wynik(grafOl));
 
 	}
 	public static int getRozmiarPopulacji() {
