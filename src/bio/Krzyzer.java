@@ -30,6 +30,7 @@ class Krzyzer {
 		while(k < r1.getSlowa().size()){
 			rTemp2.add(r1.getSlowa().get(k++));
 		}
+		int position = 0;
 		while(rTemp.size() < r2.getSlowa().size())
 		{
 			for(i = 0; i < r2.getSlowa().size(); i++){
@@ -37,17 +38,45 @@ class Krzyzer {
 				int index  = indexOn(rTemp, o);
 				if(index == -1)
 				{
-					rTemp.add(o);
+					while (position < rTemp.size())
+					{
+						int a = Projekt.getGrafOl()[o.getIndeks()][rTemp.get(position).getIndeks()];
+						int b = 0;
+						if(position > 0) b = Projekt.getGrafOl()[rTemp.get(position-1).getIndeks()][o.getIndeks()];
+						int c =  b = Projekt.getGrafOl()[rTemp.get(rTemp.size()-1).getIndeks()][o.getIndeks()];
+						if(c <= a + b - o.getDlugosc()) break;
+						++position;
+					}
+					if(position < rTemp.size())
+					{
+						rTemp.add(position++, o);
+					}
+					else rTemp.add(o);
 				}
 			}
-		}while(rTemp2.size() < r2.getSlowa().size())
+		}
+		position = 0;
+		while(rTemp2.size() < r2.getSlowa().size())
 		{
 			for(i = 0; i < r2.getSlowa().size(); i++){
 				Oligonukleotyd o = r2.getSlowa().get(i);
 				int index  = indexOn(rTemp2, o);
 				if(index == -1)
 				{
-					rTemp2.add(o);
+					while (position < rTemp2.size())
+					{
+						int a = Projekt.getGrafOl()[o.getIndeks()][rTemp2.get(position).getIndeks()];
+						int b = 0;
+						if(position > 0) b = Projekt.getGrafOl()[rTemp2.get(position-1).getIndeks()][o.getIndeks()];
+						int c =  b = Projekt.getGrafOl()[rTemp2.get(rTemp2.size()-1).getIndeks()][o.getIndeks()];
+						if(c <= a + b - o.getDlugosc()) break;
+						++position;
+					}
+					if(position < rTemp2.size())
+					{
+						rTemp2.add(position++, o);
+					}
+					else rTemp2.add(o);
 				}
 			}
 		}

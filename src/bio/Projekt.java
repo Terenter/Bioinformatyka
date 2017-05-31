@@ -60,6 +60,16 @@ public class Projekt {
 		{
 			r1.przeliczWartosc(grafOl);
 		}
+		System.out.println(populacja.get(0).getWartosc());
+		for(Oligonukleotyd i : populacja.get(0).getSlowa()){
+			System.out.println(i.getDlugosc() + " " + i.getLiczbaSlow() +  " " +i.getLancuch());
+		}
+		try {
+			System.in.read();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 //		for(Rozwiazanie r1 : populacja) System.out.println(r1.getWartosc());
 //		try {
 //			System.in.read();
