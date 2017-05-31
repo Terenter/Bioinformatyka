@@ -42,6 +42,16 @@ public class Projekt {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		if(args.length > 1)
+		if(args[1].equals("-p"))
+			rozmiarPopulacji = Integer.parseInt(args[2]);
+		else if(args[1].equals("-i"))
+				liczbaIteracji = Integer.parseInt(args[2]);
+		else if(args[1].equals("-pi"))
+		{
+			rozmiarPopulacji = Integer.parseInt(args[2]);
+			liczbaIteracji = Integer.parseInt(args[3]);			
+		}
 		long start = System.currentTimeMillis();
 		Przedprzetwarzacz przedp = new Przedprzetwarzacz();
 		grafOl = przedp.generujGraf(instancja);
