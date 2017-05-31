@@ -1,6 +1,6 @@
 package bio;
 
-class Oligonukleotyd{
+class Oligonukleotyd implements Comparable{
 	private String lancuch;
 	private int poprzedni = -1;
 	private int nastepny = -1;
@@ -48,6 +48,10 @@ class Oligonukleotyd{
 	}
 	public void setIndeks(int indeks) {
 		this.indeks = indeks;
+	}
+	public int compareTo(Object arg0) {
+		Oligonukleotyd o = (Oligonukleotyd) arg0;
+		return this.dlugosc - o.dlugosc;
 	}
 
 
