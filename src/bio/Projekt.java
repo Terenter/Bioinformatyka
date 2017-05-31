@@ -32,7 +32,7 @@ public class Projekt {
 	private static int prawdopodobienstwoKrzyzowania = 100;
 	private static int[][] grafOl;
 	private static Oligonukleotyd[] instancja;
-	private static int liczbaIteracji = 2000;
+	private static int liczbaIteracji = 500;
 	private static List<Rozwiazanie> populacja;
 	
 	
@@ -104,11 +104,11 @@ public class Projekt {
 					int l = rand.nextInt(populacja.size() - 1);
 					Rozwiazanie r2 = populacja.get(l);
 					if(r2.equals(r1)) r2 = populacja.get(populacja.size()-1);
-					int l1 = rand.nextInt(Projekt.getLiczbaSlow());
+					int l1 = rand.nextInt(liczbaSlow/2) + liczbaSlow*3/4;
 					Rozwiazanie[] table = krzyzer.krzyzuj(r1.clone(),r2.clone(),l1);
 					temp.add(table[0]);
 					temp.add(table[1]);
-					l1 = rand.nextInt(Projekt.getLiczbaSlow());
+					l1 = rand.nextInt(liczbaSlow/2) + liczbaSlow*3/4;
 					table = krzyzer.krzyzuj(r2.clone(),r1.clone(),l1);
 					temp.add(table[0]);
 					temp.add(table[1]);
