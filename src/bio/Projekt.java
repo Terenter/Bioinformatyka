@@ -42,6 +42,7 @@ public class Projekt {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		long start = System.currentTimeMillis();
 		Przedprzetwarzacz przedp = new Przedprzetwarzacz();
 		grafOl = przedp.generujGraf(instancja);
 
@@ -121,21 +122,21 @@ public class Projekt {
 			}
 			temp.clear();
 			populacja = eliminator.turniej(populacja);
-			Rozwiazanie best = populacja.get(0);
-			for(int k = 1; k < populacja.size(); k++){
-				if(populacja.get(k).getWartosc() > best.getWartosc()) best = populacja.get(k);
-			}
-			System.out.println(best.getWartosc());
+//			Rozwiazanie best = populacja.get(0);
+//			for(int k = 1; k < populacja.size(); k++){
+//				if(populacja.get(k).getWartosc() > best.getWartosc()) best = populacja.get(k);
+//			}
+//			System.out.println(best.getWartosc());
 		}
+		long stop = System.currentTimeMillis();
 		Rozwiazanie best = populacja.get(0);
 		for(int i = 1; i < populacja.size(); i++){
 			if(populacja.get(i).getWartosc() > best.getWartosc()) best = populacja.get(i);
 		}
-		System.out.println(best.getWartosc());
-		for(Oligonukleotyd i : best.getSlowa()){
-			System.out.println(i.getLancuch());
-		}
-		System.out.println(best.Wynik(grafOl));
+		System.out.println(args[0] + " " +  best.getWartosc() + " " + (stop - start) + " " + best.Wynik(grafOl));
+//		for(Oligonukleotyd i : best.getSlowa()){
+//			System.out.println(i.getLancuch());
+//		}
 
 	}
 	public static int getRozmiarPopulacji() {
