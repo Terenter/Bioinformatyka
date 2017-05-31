@@ -28,6 +28,7 @@ public class Projekt {
 	}
 	private static int rozmiarPopulacji = 200;
 	private static int prawdopodobienstwoMutacji = 100;
+	private static int stopienMutacji=25;
 	private static int prawdopodobienstwoKrzyzowania = 100;
 	private static int[][] grafOl;
 	private static Oligonukleotyd[] instancja;
@@ -110,11 +111,11 @@ public class Projekt {
 			}
 			temp.clear();
 			populacja = eliminator.turniej(populacja);
-//			Rozwiazanie best = populacja.get(0);
-//			for(int k = 1; k < populacja.size(); k++){
-//				if(populacja.get(k).getWartosc() > best.getWartosc()) best = populacja.get(k);
-//			}
-//			System.out.println(best.getWartosc());
+			Rozwiazanie best = populacja.get(0);
+			for(int k = 1; k < populacja.size(); k++){
+				if(populacja.get(k).getWartosc() > best.getWartosc()) best = populacja.get(k);
+			}
+			System.out.println(best.getWartosc());
 		}
 		Rozwiazanie best = populacja.get(0);
 		for(int i = 1; i < populacja.size(); i++){
@@ -163,6 +164,12 @@ public class Projekt {
 	}
 	public static void setDlugoscSekwencji(int dlugoscSekwencji) {
 		Projekt.dlugoscSekwencji = dlugoscSekwencji;
+	}
+	public static int getStopienMutacji() {
+		return stopienMutacji;
+	}
+	public static void setStopienMutacji(int stopienMutacji) {
+		Projekt.stopienMutacji = stopienMutacji;
 	}
 	
 	
