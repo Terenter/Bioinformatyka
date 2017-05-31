@@ -26,13 +26,13 @@ public class Projekt {
 	public static void setPopulacja(List<Rozwiazanie> populacja) {
 		Projekt.populacja = populacja;
 	}
-	private static int rozmiarPopulacji = 200;
+	private static int rozmiarPopulacji = 500;
 	private static int prawdopodobienstwoMutacji = 100;
 	private static int stopienMutacji=25;
 	private static int prawdopodobienstwoKrzyzowania = 100;
 	private static int[][] grafOl;
 	private static Oligonukleotyd[] instancja;
-	private static int liczbaIteracji = 1000;
+	private static int liczbaIteracji = 2000;
 	private static List<Rozwiazanie> populacja;
 	
 	
@@ -60,16 +60,16 @@ public class Projekt {
 		{
 			r1.przeliczWartosc(grafOl);
 		}
-		System.out.println(populacja.get(0).getWartosc());
-		for(Oligonukleotyd i : populacja.get(0).getSlowa()){
-			System.out.println(i.getDlugosc() + " " + i.getLiczbaSlow() +  " " +i.getLancuch());
-		}
-		try {
-			System.in.read();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		System.out.println(populacja.get(0).getWartosc());
+//		for(Oligonukleotyd i : populacja.get(0).getSlowa()){
+//			System.out.println(i.getDlugosc() + " " + i.getLiczbaSlow() +  " " +i.getLancuch());
+//		}
+//		try {
+//			System.in.read();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 //		for(Rozwiazanie r1 : populacja) System.out.println(r1.getWartosc());
 //		try {
 //			System.in.read();
@@ -135,7 +135,7 @@ public class Projekt {
 		for(Oligonukleotyd i : best.getSlowa()){
 			System.out.println(i.getLancuch());
 		}
-		//System.out.println(best.Wynik(grafOl));
+		System.out.println(best.Wynik(grafOl));
 
 	}
 	public static int getRozmiarPopulacji() {

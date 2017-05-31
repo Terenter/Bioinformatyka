@@ -62,7 +62,7 @@ public class Rozwiazanie implements Cloneable {
 				s1=s2;
 			}
 		}
-		return null;
+		return wynik;
 	}
 	
 	public Rozwiazanie clone(){

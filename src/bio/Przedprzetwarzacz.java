@@ -96,7 +96,10 @@ class Przedprzetwarzacz {
 	
 	private Oligonukleotyd zlacz(Oligonukleotyd o1, Oligonukleotyd o2)
 	{
-		Oligonukleotyd o = new Oligonukleotyd(o1.getLancuch()+o2.getLancuch().substring(o2.getDlugosc()-2),o1.getDlugosc()+1);
+		Oligonukleotyd o = new Oligonukleotyd(o1.getLancuch()+o2.getLancuch().
+												substring(o2.getDlugosc()-o2.getLiczbaSlow()),
+												o1.getDlugosc()+o2.getLancuch().
+												substring(o2.getDlugosc()-o2.getLiczbaSlow()).length());
 		o.setLiczbaSlow(o1.getLiczbaSlow()+o2.getLiczbaSlow());
 		o.setPoprzedni(o1.getPoprzedni());
 		if(o2.getNastepny()!=o2.getIndeks())o.setNastepny(o2.getNastepny());
